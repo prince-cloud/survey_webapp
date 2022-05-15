@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     #custom app
     'survey',
-    'bootstrap5',
+    'bootstrap',
     'crispy_forms',
 ]
 
@@ -78,27 +78,30 @@ WSGI_APPLICATION = 'survey_web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',  
-        'NAME': 'survey_database',  
-        'USER': 'root',  
-        'PASSWORD': 'surveywebapp',  
-        'HOST': '127.0.0.1',  
-        'PORT': '3306',  
-        'OPTIONS': {  
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
-        }  
-    }
-}
 
-
+###### uncomment when you have MYSQL workbench or shell installed
+###### create a databse that corresponds to the database name below
 #DATABASES = {
 #    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
+#        'ENGINE': 'django.db.backends.mysql',  
+#        'NAME': 'survey_database',  
+#        'USER': 'root',  
+#        'PASSWORD': 'surveywebapp',  
+#        'HOST': '127.0.0.1',  
+#        'PORT': '3306',  
+#        'OPTIONS': {  
+#            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+#        }  
 #    }
 #}
+
+######### default sqlite3 databse
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Password validation
