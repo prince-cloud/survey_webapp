@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>
+    Home Page
+</h1>
+
+<div class="container">
+    <div class="row">
+        <h3> Surveys </h3>
+        {% for survey in surveys %}
+        <div class="col-md-4">
+            <a href="{% url 'survey:survey_response' survey.slug %}">
+                <div class="card">
+                    <div class="card-title">
+                        {{ survey.name }}
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

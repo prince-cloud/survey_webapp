@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>
+    {{ survey.name }} <br>
+    <span> url: {{survey_url}}</span>
+</h1>
+<p>
+    <a href="{% url 'survey:edit_survey' survey.slug %}">Edit This Survey</a>
+</p>
+
+<div class="container">
+    <div class="row">
+        <h3>  <span>{{ responses.count }}</span> Responses </h3>
+        {% for response in responses %}
+        <div>
+            <h4>
+                {{ forloop.counter }}
+            </h4>
+            <p><tr>
+                Date submited: {{ response.date_submited }}
+            </tr></p>
+        </div>
+        <table>
+            <tr>
+                <td>About You</td>
+                <td>Salary</td>
+                <td>Gender</td>
+            </tr>
+            <tbody>
+                <tr> 
+                    <td>{{ response.about_you }}</td>
+                    <td>{{ response.salary }}</td>
+                    <td>{{ response.gender }}</td>
+                </tr>
+            </tbody>
+            
+        </table>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
