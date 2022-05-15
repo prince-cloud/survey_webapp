@@ -1,40 +1,44 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>
-    {{ survey.name }} <br>
-    <span> url: {{survey_url}}</span>
-</h1>
-<p>
-    <a href="{% url 'survey:edit_survey' survey.slug %}">Edit This Survey</a>
-</p>
+
 
 <div class="container">
+    <div class=" p-3">
+        <h1>
+            {{ survey.name }} <br>
+        </h1>
+        <p class="mt-3">
+            <a href="{% url 'survey:edit_survey' survey.slug %}" class="btn btn-info btn-md">Edit This Survey</a>
+        </p>
+    </div>
     <div class="row">
-        <h3>  <span>{{ responses.count }}</span> Responses </h3>
+        <h3> <span>{{ responses.count }}</span> Responses </h3>
         {% for response in responses %}
-        <div>
+        <div class="mt-3">
             <h4>
-                {{ forloop.counter }}
+                # {{ forloop.counter }}
             </h4>
-            <p><tr>
-                Date submited: {{ response.date_submited }}
-            </tr></p>
+            <p>
+                <tr>
+                    Date submited: {{ response.date_submited }}
+                </tr>
+            </p>
         </div>
-        <table>
-            <tr>
+        <table class="table table-striped ">
+            <tr class="text-bolder">
                 <td>About You</td>
                 <td>Salary</td>
                 <td>Gender</td>
             </tr>
             <tbody>
-                <tr> 
+                <tr>
                     <td>{{ response.about_you }}</td>
                     <td>{{ response.salary }}</td>
                     <td>{{ response.gender }}</td>
                 </tr>
             </tbody>
-            
+
         </table>
         {% endfor %}
     </div>

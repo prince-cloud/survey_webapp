@@ -1,6 +1,11 @@
 from django import forms
 from .models import *
 
+##custom login form
+class LoginForm(forms.ModelForm):
+    class Meta:
+        pass
+
 ## form for SA to create/edit Survey
 class SurveyForm(forms.ModelForm):
     class Meta:

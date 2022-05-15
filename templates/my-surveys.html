@@ -3,11 +3,11 @@
 {% block content %}
 <div class="container">
     <div class="row">
-        <h3> My Surveys </h3>
+        <h3 class="display-1"> My Surveys </h3>
         {% for survey in surveys %}
         <div class="col-md-4">
-            <a href="{% url 'survey:survey_detail' survey.slug %}">
-                <div class="card">
+            <a href="{% url 'survey:survey_detail' survey.slug %}" class="text-decoration-none text-center p-3">
+                <div class="card p-3">
                     <div class="card-title">
                         <h3>
                             {{ survey.name }}

@@ -1,22 +1,37 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>
-    Home Page
-</h1>
-
 <div class="container">
     <div class="row">
-        <h3> Surveys </h3>
+        <h3 class="display-1"> Surveys </h3>
         {% for survey in surveys %}
         <div class="col-md-4">
-            <a href="{% url 'survey:survey_response' survey.slug %}">
-                <div class="card">
-                    <div class="card-title">
-                        {{ survey.name }}
+            <a href="{% url 'survey:survey_response' survey.slug %}" class="text-decoration-none p-3">
+                <div class="card text-center">
+                    <div class="card-header">
+                     {{ survey.name }}
                     </div>
-                </div>
+                    <!-- <div class="card-body">
+                      <h5 class="card-title">Special title treatment</h5>
+                      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div> -->
+                    <div class="card-footer text-muted">
+                      crated: {{ survey.date_created }}
+                    </div>
+                  </div>
             </a>
+        </div>
+        {% empty %}
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p class="text-danger">
+                    There are no surveys at moment
+                </p>
+                <a href="{% url 'survey:create_survey' %}" class="btn btn-success">
+                    Create survye
+                </a>
+            </div>
         </div>
         {% endfor %}
     </div>
